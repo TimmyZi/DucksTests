@@ -8,8 +8,6 @@ import org.testng.annotations.Test;
 
 import java.time.Duration;
 import java.util.List;
-import java.util.Set;
-import java.util.concurrent.TimeUnit;
 
 public class FirstTest {
 
@@ -18,7 +16,7 @@ public class FirstTest {
     @BeforeTest
     public static void openWebsite() {
 
-        driver.manage().timeouts().pageLoadTimeout(10, TimeUnit.SECONDS);
+        driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(10));
         driver.get("https://the-internet.herokuapp.com");
         System.out.println("Open Website");
 
@@ -35,7 +33,4 @@ public class FirstTest {
          List<WebElement> elements = driver.findElements(By.tagName("a"));
          elements.get(10).click();
     }
-
-
-
 }
